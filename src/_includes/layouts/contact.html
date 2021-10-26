@@ -1,0 +1,92 @@
+---
+layout: layouts/layout.html
+---
+
+{{ content }}
+
+<article>{% include components/contact.html %}</article>
+
+<form action="/" data-netlify="true" id="myform">
+    <fieldset>
+      <legend>Enter your info</legend>
+  
+      <label for="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        value="Daniel"
+        required
+        autocomplete="name"
+        title="Please enter your name"
+      />
+  
+      <div style="margin: 1rem 0">
+        <label for="selectMe">Select a Profession</label>
+        <select name="selectme" id="selectMe">
+          <option value="doctor">Doctor</option>
+          <option value="lawyer">Lawyer</option>
+          <option value="beggarman">Beggarman</option>
+          <option value="thief">Thief</option>
+        </select>
+      </div>
+  
+      <div>
+        <label for="vehicle1"> I have a bike</label>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+  
+        <label for="vehicle2"> I have a car</label>
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
+      </div>
+  
+      <div>
+        <label for="vehiclePref1"> I prefer a bike</label>
+        <input
+          type="radio"
+          id="vehiclePref1"
+          name="vehiclePref"
+          value="Bike"
+          checked
+        />
+        <label for="vehiclePref2"> I prefer a car</label>
+        <input type="radio" id="vehiclePref2" name="vehiclePref" value="Car" />
+      </div>
+  
+      <div>
+        <input list="browsers" name="browser" />
+        <datalist id="browsers">
+          <option value="Firefox"></option>
+          <option value="Chrome"></option>
+          <option value="Opera"></option>
+          <option value="Safari"></option>
+        </datalist>
+      </div>
+  
+      <label for="email">Email</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        value="daniel@nyu.edu"
+        autocomplete="email"
+        title="The domain portion of the email address is invalid (the portion after the @)."
+        pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$"
+        required
+      />
+  
+      <label for="message">Your message</label>
+      <textarea
+        name="message"
+        id="message"
+        placeholder="Your message"
+        rows="7"
+        required
+      >
+  Just testing</textarea
+      >
+  
+      <button type="submit" name="submit">Send Message</button>
+      <button type="reset" name="reset">Reset</button>
+    </fieldset>
+  </form>
+  

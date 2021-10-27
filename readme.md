@@ -2,7 +2,7 @@
 
 ## Notes
 
-The final version of this project can be found [here](https://<>.netlify.app)
+The final version of this project can be found [here](https://zen-shaw-a13e4b.netlify.app)
 
 To run the project clone this repo and run
 

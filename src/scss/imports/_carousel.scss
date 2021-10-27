@@ -1,0 +1,37 @@
+.secondary aside {
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-around;
+      list-style-type: none;
+
+      li {
+        flex-basis: 28%;
+        margin: 2px;
+        padding: 4px;
+        background-color:$light-blue;
+        border: 1px solid $dk-yellow;
+        transition: all 0.2s linear;
+        
+        &:hover {
+          transform: scale(1.1);
+          box-shadow: 1px 1px 1px $text;
+        }
+      }
+    }
+  }
+
+  figure {
+    position: relative;
+    margin: 0;
+    figcaption {
+      padding: 1rem;
+      background:$text;
+      color: $light-blue;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+  

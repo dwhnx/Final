@@ -1,0 +1,48 @@
+form {
+    padding: 1em 0;
+  }
+  
+  label {
+    display: block;
+  }
+  
+  input,
+  textarea {
+    border: 1px solid $text;
+    border-radius: 5px;
+    width: 90%;
+    padding: 1em;
+    margin-bottom: 1em;
+  }
+   
+  textarea {
+    font: inherit;
+  }
+  
+  button {
+    padding: 6px;
+    border: 1px solid $link;
+    background-color: $link;
+    color: #fff;
+    cursor: pointer;
+  }
+
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 15px lighten($med-blue, 5%);
+}
+
+input:required,
+textarea:required {
+  background-color: lighten($dk-yellow, 3%);
+}
+
+input:valid,
+textarea:valid {
+  background-color: lighten($green, 30%);
+}
+
+input:focus:invalid,
+textarea:focus:invalid {
+  background-color: lighten($orange, 30%);
+}

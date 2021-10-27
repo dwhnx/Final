@@ -40,7 +40,7 @@ function showData(stories) {
 }
 
 
-if (document.querySelector(".home")) {
+if (document.querySelector(".news")) {
   getStories();
 }
 

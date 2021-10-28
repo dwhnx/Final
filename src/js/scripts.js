@@ -1,6 +1,7 @@
 const key = "3lg0FxwWzSZqRU8YV1NlAjPo5WGQLqTB";
 const API = `https://api.nytimes.com/svc/topstories/v2/nyregion.json?api-key=${key}`;
 const storagePrefix = "nyt-autosave";
+const halfDay = 1000 * 60 * 60 * 12;
 
 
 function getStories() {
@@ -36,7 +37,7 @@ function showData(stories) {
     .join("");
 
   document.querySelector(".stories").innerHTML = looped;
-  setWithExpiry(storagePrefix, looped, 1000 * 60);
+  setWithExpiry(storagePrefix, looped, halfDay);
 }
 
 

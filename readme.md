@@ -4,9 +4,14 @@
 
 The final version of this project can be found [here](https://<>.netlify.app)
 
-To run the project clone this repo and run
+To run the project clone this repo then run and edit it in visual studio code
 
 ```
+$ git clone -b main git@github.com:dwhnx/Final.git git@github.com:dwhnx/Final.git
+$ cd Final
+$ git branch test
+$ git check out test
+$ code .
 $ npm init -y
 $ npm install --save-dev @11ty/eleventy
 $ npm install --save-dev npm-run-all

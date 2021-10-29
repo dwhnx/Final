@@ -1,6 +1,6 @@
 const key = "onWAI4yAW75oZYDp6dmolPsHlQSZFozG";
 const API = `https://api.nytimes.com/svc/movies/v2/reviews/picks.json?api-key=${key}`;
-
+const fetch = require("node-fetch");
 const localPrefix = "nyt-local";
 const halfDay = 1000 * 60 * 60 * 12;
 

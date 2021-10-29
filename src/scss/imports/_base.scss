@@ -56,12 +56,12 @@ body {
     font-size: 0.8rem;
   }
   
-  .stories .item {
-    border-bottom: 1px dashed $light-blue;
+  .reviews .item {
+    border-bottom: 10px dashed $light-blue;
   }
   
   @media (min-width: $break-sm) {
-    .stories {
+    .reviews {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 2rem;

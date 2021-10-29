@@ -18,5 +18,8 @@ $ npm run start
 
 Challenges
 
-- Overall structure: how to break down to small pieces
-- Layout of the page: how to choose the best parameter  
+- The logic flow over all files: the function/ variable used in file A might be defined in file B
+- Layout of the page: how to choose parameters' combination that looks the best 
+- If use 'pageClass:reviews' in reviews.md will only not return nav, header, etc.. 
+
+![rando image](https://picsum.photos/640?random=3)

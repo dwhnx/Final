@@ -54,12 +54,12 @@ figcaption {
   font-size: 0.8rem;
 }
 
-.stories .item {
-  border-bottom: 1px dashed #e0fbfc;
+.reviews .item {
+  border-bottom: 10px dashed #e0fbfc;
 }
 
 @media (min-width: 480px) {
-  .stories {
+  .reviews {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 2rem;
@@ -102,7 +102,7 @@ header p + p {
   padding-top: 12px;
   padding-left: 12px;
 }
-@media (min-width: 768px) {
+@media (min-width: 300px) {
   #pull {
     display: none;
   }
@@ -110,7 +110,7 @@ header p + p {
 
 #pull::after {
   content: "";
-  background: url(../img/nav-icon.png) no-repeat;
+  background-color: #293241;
   width: 22px;
   height: 22px;
   background-size: cover;

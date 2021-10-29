@@ -3,14 +3,14 @@
   background-color: $link;
   padding-top: 12px;
   padding-left: 12px;
-  @media (min-width: $break-med) {
+  @media (min-width: $min-width) {
     display: none;
   }
 }
   
   #pull::after {
     content: "";
-    background-color: $light-blue;
+    background-color: $text;
     width: 22px;
     height: 22px;
     background-size: cover;

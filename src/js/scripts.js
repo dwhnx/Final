@@ -1,48 +1,46 @@
-const key = "3lg0FxwWzSZqRU8YV1NlAjPo5WGQLqTB";
-const API = `https://api.nytimes.com/svc/topstories/v2/nyregion.json?api-key=${key}`;
-const storagePrefix = "nyt-autosave";
+const key = "onWAI4yAW75oZYDp6dmolPsHlQSZFozG";
+const API = `https://api.nytimes.com/svc/movies/v2/reviews/picks.json?api-key=${key}`;
+
+const localPrefix = "nyt-local";
 const halfDay = 1000 * 60 * 60 * 12;
 
-
-function getStories() {
-  const value = getWithExpiry(storagePrefix);
+// Fetch from nyu movie review if local storage not found
+function getReviews() {
+  const value = getExpiry(localPrefix);
   if (!value) {
-    console.log(" expired - fetching again ");
+    console.log(" expired after 12 hours - fetching again ");
     fetch(API)
       .then((response) => response.json())
       .then((data) => showData(data.results));
   } else {
-    document.querySelector(".stories").innerHTML = value;
+    document.querySelector(".reviews").innerHTML = value;
   }
 }
 
 
-function showData(stories) {
-  const looped = stories
+function showData(reviews) {
+  const looped = reviews
     .map(
-      (story) => `
-      <div class="item">
-      <img src="${story.multimedia ? story.multimedia[2].url
-          : ""}" alt="${story.multimedia ? story.multimedia[2]?.caption
-            : ""}"/>
-      <figcaption>${story.multimedia ? story.multimedia[2]?.caption
-          : ""}</figcaption>
-        <h3>
-        <a href="${story.url}"> ${story.title}</a>
-        </h3>
-        <p>${story.abstract}</p>
+      (review) => `
+      <div class="item">   
+      <img src="${review.multimedia.src}"/>
+      <figcaption>${review.byline}</figcaption>    
+      <h3>
+      <a href="${review.link.url}">${review.headline}</a>
+      </h3>
+        <p>${review.summary_short}</p>
       </div>
     `
     )
     .join("");
 
-  document.querySelector(".stories").innerHTML = looped;
-  setWithExpiry(storagePrefix, looped, halfDay);
+  document.querySelector(".reviews").innerHTML = looped;
+  setExpiry(localPrefix, looped, halfDay);
 }
 
 
-if (document.querySelector(".news")) {
-  getStories();
+if (document.querySelector(".reviews")) {
+  getReviews();
 }
 
 
@@ -54,11 +52,11 @@ function clickHandlers(event) {
     event.preventDefault();
   }
   if (event.target.matches(".content-video a")) {
-    videoSwitch(event);
+    openVideo(event);
     event.preventDefault();
   }
   if (event.target.matches(".image-tn img")) {
-    runCarousel(event);
+    runPanel(event);
     event.preventDefault();
   }
 }
@@ -67,7 +65,7 @@ function showMenu() {
   document.querySelector("body").classList.toggle("show-nav");
 }
 
-function videoSwitch(event) {
+function openVideo(event) {
   const iFrame = document.querySelector("iframe");
   const videoLinks = document.querySelectorAll(".content-video a");
   videoLinks.forEach((videoLink) => videoLink.classList.remove("active"));
@@ -77,7 +75,7 @@ function videoSwitch(event) {
 }
 
 
-function runCarousel(event) {
+function runPanel(event) {
   const imageHref = event.target.parentNode.getAttribute("href");
   const titleText = event.target.title;
   document.querySelector("figure img").src = imageHref;
@@ -85,7 +83,7 @@ function runCarousel(event) {
 }
 
 
-function setWithExpiry(key, value, ttl) {
+function setExpiry(key, value, ttl) {
   const now = new Date();
   const item = {
     value: value,
@@ -94,13 +92,13 @@ function setWithExpiry(key, value, ttl) {
   localStorage.setItem(key, JSON.stringify(item));
 }
 
-function getWithExpiry(key) {
+function getExpiry(key) {
   const itemStr = localStorage.getItem(key);
   if (!itemStr) {
-    console.log("no item string");
+    console.log("local storage not found");
     return null;
   }
-  console.log("item string found!");
+  console.log("local storage found!");
   const item = JSON.parse(itemStr);
   const now = new Date();
   if (now.getTime() > item.expiry) {

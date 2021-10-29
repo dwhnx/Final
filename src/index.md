@@ -1,10 +1,8 @@
 ---
 layout: layouts/layout.html
-pageTitle: Readme
+pageTitle: Notes
 pageClass: home
 ---
-
-## Notes
 
 The final version of this project can be found [here](https://zen-shaw-a13e4b.netlify.app)
 

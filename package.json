@@ -8,7 +8,7 @@
     "11ty": "eleventy --serve",
     "sass": "sass src/scss/styles.scss src/css/styles.css --watch",
     "start": "npm-run-all -p rimraf 11ty sass",
-    CI='' npm run build
+    "build": "react-scripts build"
   },
   "keywords": [],
   "author": "",
